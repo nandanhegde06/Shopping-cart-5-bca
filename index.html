@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CampusTech - The Ultimate Student Tech Store. High-performance laptops, mechanical keyboards, ANC headphones, and accessories with exclusive student discounts.">
+  <title>CampusTech // Student Tech Store & Shopping Cart</title>
+  
+  <!-- Google Fonts for Modern Tech Aesthetics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient Glass Glow Background Orbs -->
+  <div class="ambient-glow orb-1" aria-hidden="true"></div>
+  <div class="ambient-glow orb-2" aria-hidden="true"></div>
+  <div class="ambient-glow orb-3" aria-hidden="true"></div>
+
+  <!-- Main App Shell -->
+  <div class="app-container">
+    
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+      <div class="announcement-content">
+        <span class="badge pulse-badge">🎓 STUDENT SPECIAL</span>
+        <span>Use coupon code <strong class="coupon-tag" id="promoCopyTag" title="Click to copy promo code">STUDENT15</strong> for an extra 15% OFF your cart!</span>
+        <span class="delivery-notice">⚡ Free Campus Delivery on orders over $99</span>
+      </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="navbar glass-panel">
+      <div class="nav-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Campus<span class="highlight">Tech</span></span>
+          <span class="brand-tagline">Student Gear Hub</span>
+        </div>
+      </div>
+
+      <!-- Search Bar in Header -->
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search laptops, keyboards, headphones..." autocomplete="off">
+        <button id="clearSearchBtn" class="clear-search-btn" aria-label="Clear search" style="display: none;">&times;</button>
+      </div>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <button class="nav-btn wishlist-btn" id="wishlistToggleBtn" title="Student Favorites">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="wishlist-badge" id="wishlistCount">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button class="cart-trigger-btn glass-btn" id="cartOpenBtn" aria-label="Open Shopping Cart">
+          <div class="cart-icon-wrap">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-2z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge-count" id="headerCartCount">0</span>
+          </div>
+          <div class="cart-preview-info">
+            <span class="cart-preview-label">My Bag</span>
+            <span class="cart-preview-total" id="headerCartTotal">$0.00</span>
+          </div>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-layout">
+      
+      <!-- Hero Banner Section -->
+      <section class="hero-section glass-panel">
+        <div class="hero-content">
+          <div class="hero-badge">🚀 Semester Readiness 2026</div>
+          <h1 class="hero-title">Level Up Your <span class="gradient-text">Study & Play</span> Setup</h1>
+          <p class="hero-subtitle">Curated premium laptops, mechanical keyboards, noise-cancelling audio, and ergonomics engineered for coding, studying, and gaming.</p>
+          <div class="hero-perks">
+            <div class="perk-item">
+              <span class="perk-icon">🏷️</span>
+              <span>Exclusive Student Rates</span>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">⚡</span>
+              <span>Instant Dorm Delivery</span>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🛡️</span>
+              <span>2-Year Campus Warranty</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-glow-card">
+            <div class="featured-tag">🔥 Featured Deal</div>
+            <div class="featured-device">
+              <span class="device-icon">💻</span>
+              <div class="featured-info">
+                <h4>CyberBlade 14 Pro</h4>
+                <p>OLED 120Hz • M3 Max • 32GB RAM</p>
+                <div class="featured-price">
+                  <span class="price-now">$1,299.99</span>
+                  <span class="price-old">$1,499.99</span>
+                </div>
+              </div>
+            </div>
+            <button class="glass-btn btn-sm hero-quick-add" onclick="app.quickAddFeatured()">Add Featured to Cart</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filter, Category & Sort Bar -->
+      <section class="controls-section glass-panel">
+        <div class="category-filters" id="categoryFilters" role="tablist" aria-label="Product Categories">
+          <button class="filter-pill active" data-category="all" role="tab" aria-selected="true">
+            <span class="pill-icon">✨</span> All Gear <span class="pill-count" id="count-all">23</span>
+          </button>
+          <button class="filter-pill" data-category="laptops" role="tab" aria-selected="false">
+            <span class="pill-icon">💻</span> Laptops <span class="pill-count" id="count-laptops">4</span>
+          </button>
+          <button class="filter-pill" data-category="keyboards" role="tab" aria-selected="false">
+            <span class="pill-icon">⌨️</span> Keyboards <span class="pill-count" id="count-keyboards">4</span>
+          </button>
+          <button class="filter-pill" data-category="audio" role="tab" aria-selected="false">
+            <span class="pill-icon">🎧</span> Audio & ANC <span class="pill-count" id="count-audio">4</span>
+          </button>
+          <button class="filter-pill" data-category="peripherals" role="tab" aria-selected="false">
+            <span class="pill-icon">🖱️</span> Peripherals <span class="pill-count" id="count-peripherals">5</span>
+          </button>
+          <button class="filter-pill" data-category="accessories" role="tab" aria-selected="false">
+            <span class="pill-icon">🎒</span> Accessories <span class="pill-count" id="count-accessories">6</span>
+          </button>
+        </div>
+
+        <div class="sort-wrapper">
+          <label for="sortBySelect" class="sort-label">Sort by:</label>
+          <div class="select-container">
+            <select id="sortBySelect" class="sort-select">
+              <option value="featured">🔥 Featured & Popular</option>
+              <option value="price-low">💵 Price: Low to High</option>
+              <option value="price-high">💎 Price: High to Low</option>
+              <option value="rating">⭐ Highest Rated</option>
+              <option value="name">🔤 Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Grid Section -->
+      <section class="products-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Student Tech Catalog</h2>
+            <p class="section-subtitle" id="productsCountLabel">Showing all products</p>
+          </div>
+          <div class="active-filter-indicators" id="activeFilterTags"></div>
+        </div>
+
+        <!-- Dynamic Product Cards Container -->
+        <div class="product-grid" id="productGrid">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <!-- Empty Results State (Hidden by default) -->
+        <div class="empty-state glass-panel" id="noProductsFound" style="display: none;">
+          <div class="empty-icon">🔍</div>
+          <h3>No matching student tech found</h3>
+          <p>Try searching for different keywords or clear your active category filters.</p>
+          <button class="btn btn-primary" id="resetFiltersBtn">Reset All Filters</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer glass-panel">
+      <div class="footer-content">
+        <div class="footer-col">
+          <div class="brand-text">
+            <span class="brand-name">Campus<span class="highlight">Tech</span></span>
+            <p class="footer-desc">The official student hardware provider. Empowering students with top-tier technology for engineering, design, coding, and campus life.</p>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Student Support</h4>
+          <ul>
+            <li><a href="#dorm-delivery">Campus Delivery Map</a></li>
+            <li><a href="#student-id">Student ID Verification</a></li>
+            <li><a href="#warranty">2-Year Campus Warranty</a></li>
+            <li><a href="#trade-in">Hardware Trade-In</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Active Coupons</h4>
+          <div class="coupon-badges">
+            <div class="coupon-badge-card" onclick="app.applyCodeAndOpen('STUDENT15')">
+              <code>STUDENT15</code>
+              <span>15% Off All Gear</span>
+            </div>
+            <div class="coupon-badge-card" onclick="app.applyCodeAndOpen('CAMPUS10')">
+              <code>CAMPUS10</code>
+              <span>$10 Instant Discount</span>
+            </div>
+            <div class="coupon-badge-card" onclick="app.applyCodeAndOpen('PRODIGY20')">
+              <code>PRODIGY20</code>
+              <span>20% Off Orders &gt; $500</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 CampusTech Store Inc. Built for Students, by Engineers. All rights reserved.</p>
+        <p class="safe-checkout-badge">🔒 256-Bit SSL Encrypted Campus Checkout</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Dynamic Slide-out Cart Drawer -->
+  <aside class="cart-drawer-overlay" id="cartDrawerOverlay" aria-hidden="true">
+    <div class="cart-drawer glass-drawer" id="cartDrawer" role="dialog" aria-labelledby="cartDrawerTitle" aria-modal="true">
+      
+      <!-- Cart Drawer Header -->
+      <div class="cart-header">
+        <div class="cart-title-wrap">
+          <div class="cart-header-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-2z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 id="cartDrawerTitle" class="cart-title">Your Student Tech Bag</h3>
+            <span class="cart-count-subtitle" id="cartItemsSubtitle">0 items selected</span>
+          </div>
+        </div>
+        <div class="cart-header-actions">
+          <button class="cart-clear-btn" id="clearCartBtn" title="Clear all items in cart">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            <span>Clear</span>
+          </button>
+          <button class="close-drawer-btn" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+        </div>
+      </div>
+
+      <!-- Free Shipping Dynamic Progress Tracker -->
+      <div class="shipping-progress-box">
+        <div class="shipping-info">
+          <span class="shipping-icon" id="shippingIcon">🚚</span>
+          <span class="shipping-text" id="shippingText">Add <strong>$99.00</strong> more for Free Campus Delivery!</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="shippingProgressBar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Item List Container -->
+      <div class="cart-items-container" id="cartItemsList">
+        <!-- Dynamically rendered items or empty cart state -->
+      </div>
+
+      <!-- Cart Drawer Footer & Price Calculations -->
+      <div class="cart-footer" id="cartFooter">
+        
+        <!-- Promo / Discount Code Input -->
+        <div class="promo-box">
+          <div class="promo-input-group">
+            <svg class="coupon-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <input type="text" id="couponInput" class="coupon-input" placeholder="Enter coupon (e.g. STUDENT15)" uppercase autocomplete="off">
+            <button id="applyCouponBtn" class="btn-apply-coupon">Apply</button>
+          </div>
+          <div class="applied-coupon-pill" id="appliedCouponPill" style="display: none;">
+            <span class="coupon-code-text" id="appliedCouponText">STUDENT15 applied (-15%)</span>
+            <button class="remove-coupon-btn" id="removeCouponBtn" title="Remove promo">&times;</button>
+          </div>
+        </div>
+
+        <!-- Cost Breakdown Table -->
+        <div class="cost-breakdown">
+          <div class="cost-row">
+            <span>Subtotal (<span id="summaryItemCount">0</span> items)</span>
+            <span class="cost-val" id="cartSubtotal">$0.00</span>
+          </div>
+          <div class="cost-row discount-row" id="discountRow" style="display: none;">
+            <span class="discount-label">Student Discount</span>
+            <span class="cost-val discount-val" id="cartDiscount">-$0.00</span>
+          </div>
+          <div class="cost-row">
+            <span>Estimated Campus Tax (5%)</span>
+            <span class="cost-val" id="cartTax">$0.00</span>
+          </div>
+          <div class="cost-row">
+            <span>Campus Delivery</span>
+            <span class="cost-val shipping-val" id="cartShipping">Free</span>
+          </div>
+          <div class="divider"></div>
+          <div class="cost-row total-row">
+            <div>
+              <span class="total-label">Grand Total</span>
+              <span class="total-hint">Includes taxes & student savings</span>
+            </div>
+            <span class="total-val" id="cartGrandTotal">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Checkout Buttons -->
+        <div class="cart-actions">
+          <button class="btn btn-primary btn-block checkout-btn" id="proceedCheckoutBtn">
+            <span>Proceed to Student Checkout</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <button class="btn btn-secondary btn-block" id="continueShoppingBtn">
+            Continue Browsing
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- Interactive Student Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModalOverlay" aria-hidden="true">
+    <div class="modal-card glass-panel" role="dialog" aria-modal="true" aria-labelledby="checkoutModalTitle">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">🎒</span>
+          <div>
+            <h3 id="checkoutModalTitle">Campus Express Checkout</h3>
+            <p class="modal-subtitle">Instant verification & dorm room delivery</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="closeCheckoutModalBtn">&times;</button>
+      </div>
+
+      <form id="checkoutForm" class="checkout-form" onsubmit="event.preventDefault(); app.processOrder();">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="studentName">Full Name *</label>
+            <input type="text" id="studentName" class="form-input" placeholder="e.g. Alex Johnson" required>
+          </div>
+          <div class="form-group">
+            <label for="studentEmail">University Email (.edu) *</label>
+            <input type="email" id="studentEmail" class="form-input" placeholder="alex@university.edu" required>
+          </div>
+          <div class="form-group">
+            <label for="studentId">Student ID Number *</label>
+            <input type="text" id="studentId" class="form-input" placeholder="STU-884920" required>
+          </div>
+          <div class="form-group">
+            <label for="dormLocation">Campus / Dorm Location *</label>
+            <input type="text" id="dormLocation" class="form-input" placeholder="North Campus Hall B, Room 402" required>
+          </div>
+        </div>
+
+        <div class="payment-method-section">
+          <label class="form-label-heading">Payment Method</label>
+          <div class="payment-options">
+            <label class="payment-radio glass-panel active">
+              <input type="radio" name="paymentMethod" value="campus-card" checked>
+              <div class="payment-radio-content">
+                <span class="pay-icon">💳</span>
+                <div>
+                  <strong>Campus Student Card</strong>
+                  <span>Direct student account deduction</span>
+                </div>
+              </div>
+            </label>
+            <label class="payment-radio glass-panel">
+              <input type="radio" name="paymentMethod" value="card">
+              <div class="payment-radio-content">
+                <span class="pay-icon">💎</span>
+                <div>
+                  <strong>Credit / Debit Card</strong>
+                  <span>Visa, Mastercard, Amex, Apple Pay</span>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="checkout-summary-box glass-panel">
+          <div class="checkout-summary-line">
+            <span>Items to deliver:</span>
+            <strong id="checkoutItemsCount">0 items</strong>
+          </div>
+          <div class="checkout-summary-line total">
+            <span>Final Charged Amount:</span>
+            <strong id="checkoutTotalAmount" class="gradient-text">$0.00</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelCheckoutBtn">Back to Bag</button>
+          <button type="submit" class="btn btn-primary" id="confirmOrderBtn">
+            <span>Authorize & Confirm Order</span>
+            <span class="btn-sparkle">✨</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Receipt Success Modal -->
+  <div class="modal-overlay" id="receiptModalOverlay" aria-hidden="true">
+    <div class="modal-card receipt-card glass-panel" role="dialog" aria-modal="true">
+      <div class="receipt-checkmark">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h3 class="receipt-title">Order Confirmed! 🚀</h3>
+      <p class="receipt-desc">Thank you for ordering with CampusTech. We've dispatched your order to your campus delivery desk.</p>
+
+      <div class="receipt-details glass-panel" id="receiptContent">
+        <!-- Filled dynamically by app.js -->
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-primary btn-block" id="finishOrderBtn">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Quick View Modal -->
+  <div class="modal-overlay" id="quickViewOverlay" aria-hidden="true">
+    <div class="modal-card quickview-card glass-panel" id="quickViewContent" role="dialog" aria-modal="true">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification System -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
